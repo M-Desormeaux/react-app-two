@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppCenter, AppWrapper, GlobalStyle } from "./AppStyle";
+import { AddUser } from "./components/Users/AddUser/AddUser";
+import { useState } from "react";
+import { UserList } from "./components/Users/UserList/UserList";
+
+// TODO: Add User component with name and age variables
+// TODO: Add Error component which pops up when data is not of the right type
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const newUserHandler = (newUser) => {
+    setUsers([...users, newUser]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper>
+      <AppCenter>
+        <GlobalStyle />
+        <AddUser onNewUser={newUserHandler} />
+        {users.length > 0 && <UserList userList={users} />}
+      </AppCenter>
+    </AppWrapper>
   );
 }
 
