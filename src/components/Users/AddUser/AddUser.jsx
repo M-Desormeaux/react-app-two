@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const AddUser = (props) => {
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(0);
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -45,22 +45,23 @@ export const AddUser = (props) => {
     <Card color="#141E61">
       <form onSubmit={addUserHandler}>
         <InputGroup>
-          <InputLabel htmlFor="username">Username</InputLabel>
+          <InputLabel>Username</InputLabel>
           <InputBox
             type="text"
             value={name}
             onChange={setNameHandler}
+            required
           />
         </InputGroup>
         <InputGroup>
-          <InputLabel htmlFor="age">Age</InputLabel>
+          <InputLabel>Age</InputLabel>
           <InputBox
             type="number"
-            min="13"
-            max="115"
+            min="0"
             step="1"
             value={age}
             onChange={setAgeHandler}
+            required
           />
         </InputGroup>
         <Button type="submit" color="#787A91" onClick={addUserHandler} white>
