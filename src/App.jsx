@@ -13,12 +13,22 @@ function App() {
     setUsers([...users, newUser]);
   };
 
+  const onDeleteUser = (TargetID) => {
+    setUsers((allUsers) => {
+      const updatedUsers = allUsers.filter((target) => target.id !== TargetID);
+      return updatedUsers;
+
+    });
+  };
+
   return (
     <AppWrapper>
       <AppCenter>
         <GlobalStyle />
         <AddUser onNewUser={newUserHandler} />
-        {users.length > 0 && <UserList userList={users} />}
+        {users.length > 0 && (
+          <UserList userList={users} onDelete={onDeleteUser} />
+        )}
       </AppCenter>
     </AppWrapper>
   );

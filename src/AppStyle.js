@@ -29,7 +29,7 @@ export const AppCenter = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 600px;
+  width: 400px;
   height: 100vh;
   padding: 1rem;
 `;

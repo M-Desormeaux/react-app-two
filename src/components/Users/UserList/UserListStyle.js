@@ -3,7 +3,7 @@ import { CardWrapper } from "../../UI/Card/CardStyle";
 
 export const UserListPanel = styled(CardWrapper)`
   width: 100%;
-  //max-height: 50%;
+  max-height: 50%;
   padding: 0;
   margin-top: 1rem;
   overflow-y: scroll;
@@ -12,4 +12,16 @@ export const UserListPanel = styled(CardWrapper)`
   &::-webkit-scrollbar {
     width: 0;
   }
+`;
+
+export const Delete = styled.button`
+  background: transparent;
+  border: 0;
+`;
+
+
+export const FlexWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
